@@ -4,6 +4,13 @@
     <view class="title" v-for="(item, index) in userList" :key="index">{{
       item.username
     }}</view>
+
+    <view class="btn">
+      <up-button
+        text="渐变色按钮"
+        color="linear-gradient(to right, rgb(66, 83, 216), rgb(213, 51, 186))"
+      ></up-button>
+    </view>
   </view>
 </template>
 
@@ -68,5 +75,9 @@ export default {
 .title {
   font-size: 36rpx;
   color: #8f8f94;
+}
+
+.btn {
+  width: 200rpx;
 }
 </style>
