@@ -10,3 +10,7 @@
 
 - [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
 
+## TODO
+
+- [ ] 更换uview-plus为uv-ui
+- [ ] 集成这个仓库的工具 https://github.com/hy353/uniapp-vue3-vite-tailwindcss
