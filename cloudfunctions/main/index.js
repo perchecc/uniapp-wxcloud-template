@@ -2,21 +2,20 @@
 const cloud = require("wx-server-sdk");
 const TcbRouter = require("tcb-router");
 
-// 公共模块
-const common = require("./common/index");
-
 // 工具类
 const utils = require("./utils/index");
 
 cloud.init({
   // API 调用都保持和云函数当前所在环境一致
-  // env: cloud.DYNAMIC_CURRENT_ENV,
-  env: "dev-5g45d1w87a2a5550", // 环境
+  env: cloud.DYNAMIC_CURRENT_ENV,
 });
 
 const db = cloud.database();
 
 exports.main = async (event, context) => {
+  const { data } = event;
+  console.log(data);
+
   const app = new TcbRouter({ event });
   // app.use 表示该中间件会适用于所有的路由
   app.use(async (ctx, next) => {
@@ -44,8 +43,18 @@ exports.main = async (event, context) => {
     }
   });
 
-  //授权登录
-  app.router("login", common.login);
+  //  授权登录
+  app.router("login", async (ctx, next) => {
+    ctx.body = {};
+  });
+
+  app.router("getusers", async (ctx, next) => {
+    const collection = "users"; //数据库的名称
+    const getdata = await db.collection(collection).get();
+    console.log(getdata);
+    const res = getdata.data.length ? getdata.data : utils.throwError(404, "没有数据");
+    ctx.body = res;
+  });
 
   return app.serve();
 };

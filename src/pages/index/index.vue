@@ -1,9 +1,9 @@
 <template>
   <view class="content">
     <image class="logo" src="/static/logo.png"></image>
-    <view class="text-area">
-      <text class="title">{{ title }}</text>
-    </view>
+    <view class="title" v-for="(item, index) in userList" :key="index">{{
+      item.username
+    }}</view>
   </view>
 </template>
 
@@ -11,7 +11,8 @@
 export default {
   data() {
     return {
-      title: "Hello",
+      title: "Hello 情侣餐厅",
+      userList: [],
     };
   },
   onLoad() {
@@ -19,13 +20,23 @@ export default {
       .callFunction({
         name: "main",
         data: {
-          $url: "login",
+          $url: "getusers",
+          data: {
+            key: 1,
+          },
         },
       })
       .then((res) => {
         console.log(res);
-
-        debugger
+        const { result } = res;
+        if (result.length) {
+          this.userList = result;
+        } else {
+          this.userList = [];
+        }
+      })
+      .catch((error) => {
+        console.log(error);
       });
   },
   methods: {},

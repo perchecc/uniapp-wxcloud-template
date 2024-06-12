@@ -2,6 +2,7 @@
 export default {
   onLaunch: function () {
     console.log("App Launch");
+    // 调用 wx.cloud.init 方法完成云能力初始化
     wx.cloud.init({
       env: "dev-5g45d1w87a2a5550", // 环境
       traceUser: true, // 在将用户访问记录到用户管理中，在控制台中可鬼
