@@ -5,7 +5,11 @@
       item.username
     }}</view>
 
-    <view class="btn">
+    <view class="tw-bg-red-50 tw-mt-2 tw-p-2 tw-h-[50rpx]">
+      <text>Hello Tailwind CSS</text>
+    </view>
+
+    <view class="btn tw-mt-2">
       <up-button
         text="渐变色按钮"
         color="linear-gradient(to right, rgb(66, 83, 216), rgb(213, 51, 186))"
