@@ -12,5 +12,9 @@
 
 ## TODO
 
-- [ ] 更换uview-plus为uv-ui
-- [ ] 集成这个仓库的工具 https://github.com/hy353/uniapp-vue3-vite-tailwindcss
+- [x] 支持pinia状态管理
+- [x] 支持z-paging列表库
+- [x] 支持tailwindcss，兼容小程序部分编译样式错误问题
+- [x] dayjs库
+- [x] 第三方组件库`uview-plus`，支持vue3
+- [ ] 更换uview-plus为uv-ui (暂时不换了，没有太大差异)
