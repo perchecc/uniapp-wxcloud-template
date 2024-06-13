@@ -1,4 +1,10 @@
-# 云开发 quickstart
+# 云开发 quickstart template
+
+## 基本介绍
+
+uniapp + 微信云开发 + vite + vue3 模板
+
+## 云开发快速启动指引
 
 这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
 
@@ -16,5 +22,5 @@
 - [x] 支持z-paging列表库
 - [x] 支持tailwindcss，兼容小程序部分编译样式错误问题
 - [x] dayjs库
-- [x] 第三方组件库`uview-plus`，支持vue3
+- [x] 第三方组件库`uview-plus`
 - [ ] 更换uview-plus为uv-ui (暂时不换了，没有太大差异)
