@@ -1,6 +1,7 @@
 <template>
   <view class="content">
     <image class="logo" src="/static/logo.png"></image>
+    <view class="tw-mb-2">加载云数据库中数据</view>
     <view class="title" v-for="(item, index) in userList" :key="index">{{
       item.username
     }}</view>
