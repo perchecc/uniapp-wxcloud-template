@@ -11,20 +11,36 @@
 
     <view class="btn tw-mt-2">
       <up-button
-        text="渐变色按钮"
+        text="调用 increment"
         color="linear-gradient(to right, rgb(66, 83, 216), rgb(213, 51, 186))"
+        @click="increment()"
       ></up-button>
+    </view>
+
+    <view class="tw-mt-2">
+      store中获取count
+      <text>{{ count }}</text>
     </view>
   </view>
 </template>
 
 <script>
+import { mapState, mapActions } from "pinia";
+import { useCounterStore } from "@/stores/counter";
 export default {
   data() {
     return {
       title: "Hello 情侣餐厅",
       userList: [],
     };
+  },
+  computed: {
+    // 允许读取 this.count
+    ...mapState(useCounterStore, ["count"]),
+  },
+  methods: {
+    // 允许读取 this.increment()
+    ...mapActions(useCounterStore, ["increment"]),
   },
   onLoad() {
     wx.cloud
@@ -50,7 +66,6 @@ export default {
         console.log(error);
       });
   },
-  methods: {},
 };
 </script>
 

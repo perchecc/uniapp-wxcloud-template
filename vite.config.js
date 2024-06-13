@@ -1,7 +1,8 @@
 import { defineConfig } from "vite";
-import postcssConfig from './postcss.config'
+import postcssConfig from "./postcss.config";
 import uni from "@dcloudio/vite-plugin-uni";
-import uvtw from '@uni-helper/vite-plugin-uni-tailwind'
+import uvtw from "@uni-helper/vite-plugin-uni-tailwind";
+import { resolve } from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,9 +12,10 @@ export default defineConfig({
   css: {
     postcss: postcssConfig,
   },
-  plugins: [
-    uni(),
-    uvtw(),
-  ],
+  plugins: [uni(), uvtw()],
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "/src"),
+    },
+  },
 });
-
